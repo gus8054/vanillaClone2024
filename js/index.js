@@ -35,40 +35,27 @@ bodyEl.style.backgroundImage = `url("static/background_images/background-image${
 
 // weather
 const locationNameEl = document.querySelector(".weather__location");
-const weathericonEl = document.querySelector(".weather__icon");
+const weatherEl = document.querySelector(".weather__main");
 const weatherContainerEl = document.querySelector(".weather");
+const API_KEY = "894938f425351f737312de8a94ae4d6e";
 
-async function requestWeather(latitude, longitude) {
-  const baseURL = "http://api.weatherapi.com/v1/current.json";
-  const urlParmas = {
-    key: "4e01428708224a3fa2c113948240402",
-    q: `${latitude},${longitude}`,
-  };
-  const res = await fetch(
-    `${baseURL}?${new URLSearchParams([
-      ...Object.entries(urlParmas),
-    ]).toString()}`,
-    { method: "GET" }
-  );
-  const resjson = await res.json();
-  return resjson;
+function onGeoOk(position) {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      locationNameEl.textContent = data.name;
+      weatherEl.textContent = `${data.weather[0].main}`;
+      weatherContainerEl.classList.remove("weather_loading");
+    });
+}
+function onGeoError() {
+  alert("Can't find you. No weather for you.");
 }
 
-async function success(pos) {
-  const res = await requestWeather(pos.coords.latitude, pos.coords.longitude);
-  locationNameEl.textContent = res.location.name;
-  weathericonEl.src = `https:${res.current.condition.icon}`;
-  weatherContainerEl.classList.remove("weather_loading");
-}
-function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-}
-const weatherOptions = {
-  maximumAge: 0,
-  enableHighAccuracy: true,
-  timeout: 5000,
-};
-navigator.geolocation.getCurrentPosition(success, error, [weatherOptions]);
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 
 // login
 const loginFormEl = document.querySelector(".login__form");

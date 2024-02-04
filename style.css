@@ -59,10 +59,11 @@ body {
   left: 0px;
 }
 .weather {
-  padding: 1rem 0rem 1rem 2rem;
+  padding: 1rem 2rem;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   display: flex;
+  column-gap: 1rem;
   align-items: center;
 }
 .weather_loading {
@@ -76,17 +77,12 @@ body {
   background-size: cover;
   position: relative;
 }
-.weather__location {
+.weather__location,
+.weather__main {
   font-size: 2rem;
   color: black;
 }
-.weather__icon__container {
-  width: 5rem;
-  height: 5rem;
-}
-.weather__icon__container img {
-  width: 100%;
-}
+
 @keyframes placeHolderShimmer {
   0% {
     background-position: -800px 0;
