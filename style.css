@@ -1,0 +1,192 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flow-root;
+  height: 100vh;
+  background-image: url("/static/background_images/background-image1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container {
+  height: calc(100vh - 8rem);
+  margin: 4rem;
+  position: relative;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 2rem;
+}
+.datetimezone__datezone {
+  display: flex;
+  flex-basis: 40rem;
+  column-gap: 4rem;
+  align-items: baseline;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0px 0px 10px gray;
+}
+.datezone__year {
+  color: #fb542b;
+}
+.datezone__monthday {
+  color: #a0a5eb;
+}
+.datezone__weekday {
+  color: #ffffff;
+  font-size: 2rem;
+}
+.weekday__firstchar {
+  font-size: 2.5rem;
+  margin-right: 0.5rem;
+}
+.datetimezone__timezone {
+  font-size: 5rem;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+.footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.weather {
+  padding: 1rem 0rem 1rem 2rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+}
+.weather_loading {
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background-color: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #bbbbbb 18%, #eeeeee 33%);
+  background-size: cover;
+  position: relative;
+}
+.weather__location {
+  font-size: 2rem;
+  color: black;
+}
+.weather__icon__container {
+  width: 5rem;
+  height: 5rem;
+}
+.weather__icon__container img {
+  width: 100%;
+}
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -800px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.login {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 40rem;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+.login__username {
+  height: 2rem;
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid gray;
+  outline-color: gray;
+}
+.login__username::placeholder {
+  font-size: 1.5rem;
+}
+.login__username:is(:hover, :focus) {
+  border-color: black;
+}
+.login__username:hover::placeholder,
+.login__username:focus::placeholder {
+  color: black;
+}
+.login__submit {
+  display: inline-block;
+  width: max-content;
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+  background-color: white;
+  font-size: 1rem;
+}
+.login__submit:hover,
+.login__submit:focus {
+  opacity: 0.5;
+}
+.login_hidden {
+  display: none;
+}
+.login__display-user__username {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.login__display-user__text {
+  font-size: 1.5rem;
+}
+.todo__container {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 40rem;
+  border-radius: 20px;
+  padding: 2rem;
+}
+#todo-form input {
+  height: 2rem;
+  width: 100%;
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid gray;
+  outline-color: gray;
+}
+#todo-list {
+  padding-inline: 2rem;
+  margin-top: 2rem;
+  list-style-position: inside;
+  list-style-type: none;
+}
+#todo-list li {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#todo-list li button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+}
+.hidden {
+  display: none;
+}

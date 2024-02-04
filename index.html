@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="/js/index.js"></script>
+    <title>바닐라 첼린지</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header datetimezone">
+        <h1 class="datetimezone__datezone">
+          <span class="datezone__year">2024.</span
+          ><span class="datezone__monthday">2.4</span
+          ><span class="datezone__weekday"
+            ><span class="weekday__firstchar">일</span>요일</span
+          >
+        </h1>
+        <h1 class="datetimezone__timezone">22:22</h1>
+      </header>
+      <main class="main">
+        <div class="login login__display-user login_hidden">
+          <p class="login__display-user__username">DH</p>
+          <p class="login__display-user__text">오늘의 할 일을 작성해보세요.</p>
+        </div>
+        <form class="login login__form">
+          <input
+            class="login__username"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="username"
+            required
+          />
+          <button class="login__submit">Log In</button>
+        </form>
+        <div class="todo__container hidden">
+          <form id="todo-form">
+            <input
+              type="text"
+              placeholder="Write a To Do and Press Enter"
+              required
+            />
+          </form>
+          <ul id="todo-list"></ul>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="weather weather_loading">
+          <h2 class="weather__location">Seoul</h2>
+          <div class="weather__icon__container">
+            <img class="weather__icon" src="" alt="" srcset="" />
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
