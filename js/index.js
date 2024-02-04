@@ -31,7 +31,7 @@ setInterval(() => {
 //random background images
 const randomNum = Math.floor(Math.random() * 9 + 1);
 const bodyEl = document.body;
-bodyEl.style.backgroundImage = `url("/static/background_images/background-image${randomNum}.jpg")`;
+bodyEl.style.backgroundImage = `url("static/background_images/background-image${randomNum}.jpg")`;
 
 // weather
 const locationNameEl = document.querySelector(".weather__location");
